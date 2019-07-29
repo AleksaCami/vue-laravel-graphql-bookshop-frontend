@@ -1,13 +1,15 @@
 mutation(
+  $id: ID!
   $title: String!
   $author: String!
   $image: String
   $link: String
   $description: String
   $featured: Boolean
-  $category_id: Int!
+  $category_id: Int
 ) {
-  createBook(
+  updateBook(
+    id: $id
     title: $title
     author: $author
     image: $image

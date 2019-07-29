@@ -78,7 +78,6 @@
 
 <script>
 // @ is an alias to /src
-// import gql from 'graphql-tag'
 import categoryQuery from '@/graphql/queries/category.gql'
 import booksQuery from '@/graphql/queries/books.gql'
 import categoriesQuery from '@/graphql/queries/categories.gql'
@@ -101,14 +100,6 @@ export default {
       query: booksQuery
     }
   },
-  // apollo: {
-  //   categories: gql`{
-  //     categories {
-  //       id
-  //       name
-  //     }
-  //   }`,
-  // },
   methods: {
     selectCategory(category) {
       if(category === 'all') {
@@ -124,7 +115,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .link-margin {
   margin-right: 24px;

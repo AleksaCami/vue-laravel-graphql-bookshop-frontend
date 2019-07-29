@@ -34,7 +34,7 @@ export default new Router({
     },
     {
       path: '/books/:id/edit',
-      name: 'addBook',
+      name: 'updateBook',
       component: () => import('./views/EditBook.vue')
     }
   ]

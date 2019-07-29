@@ -33,7 +33,7 @@
                         <option v-for="category of data.categories" :key="category.id" class="user link-margin"
                         :value="category.id"
                         >
-                            {{ category.id }}. {{ category.name }}
+                            {{ category.name }}
                         </option>
                     </select>
                 </template>

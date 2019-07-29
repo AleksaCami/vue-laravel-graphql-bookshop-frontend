@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <router-link to="/books/add">Add book</router-link>
     <ApolloQuery :query="categoriesQuery">
       <template slot-scope="{ result: { data, loading }, isLoading }">
         <div v-if="isLoading">Loading...</div>
@@ -20,8 +21,14 @@
         <template slot-scope="{ result: { data, loading }, isLoading }">
           <div v-if="isLoading">Loading...</div>
           <div v-else>
-            <div v-for="book of data.books" :key="book.id" class="user link-margin">
-              {{ book.id }}. {{ book.title }} / {{ book.author }}
+            <div>
+              <router-link :to="`/books/${book.id}`" v-for="book of data.books" :key="book.id" class="user link-margin">
+                <div>
+                  {{ book.id }}. {{ book.title }}
+                </div>
+                <div> {{ book.author }} </div>
+                <img :src="`http://localhost:8000/img/${book.image}`" alt="cover image">
+              </router-link>
             </div>
           </div>
         </template>
@@ -33,8 +40,14 @@
         <template slot-scope="{ result: { data, loading }, isLoading }">
           <div v-if="isLoading">Loading...</div>
           <div v-else>
-            <div v-for="book of data.booksByFeatured" :key="book.id">
-              {{ book.id }}. {{ book.title }}
+            <div>
+              <router-link :to="`/books/${book.id}`" v-for="book of data.booksByFeatured" :key="book.id">
+               <div>
+                  {{ book.id }}. {{ book.title }}
+                </div>
+                <div> {{ book.author }} </div>
+                <img :src="`http://localhost:8000/img/${book.image}`" alt="cover image">
+              </router-link>
             </div>
           </div>
         </template>
@@ -46,8 +59,14 @@
         <template slot-scope="{ result: { data, loading }, isLoading }">
           <div v-if="isLoading">Loading...</div>
           <div v-else>
-            <div v-for="book of data.category.books" :key="book.id" class="user link-margin">
-              {{ book.id }}. {{ book.title }}
+            <div>
+              <router-link :to="`/books/${book.id}`" v-for="book of data.category.books" :key="book.id" class="user link-margin">
+                <div>
+                  {{ book.id }}. {{ book.title }}
+                </div>
+                <div> {{ book.author }} </div>
+                <img :src="`http://localhost:8000/img/${book.image}`" alt="cover image">
+              </router-link>
             </div>
           </div>
         </template>
